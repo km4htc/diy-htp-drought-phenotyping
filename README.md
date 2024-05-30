@@ -14,7 +14,7 @@ However, by removing the IR exclusion filter and replacing it with a dual-pass f
   <img src="https://github.com/km4htc/diy-htp-drought-phenotyping/assets/27516057/a98e954b-c754-41e1-a980-9c94e3d18df0" width="75%" >
 </p>
 <sup><sub>(A) A simplified lightbox showing full spectrum (white) and 730nm (red) LED light strips surrounding the standard and modified DSLR cameras. (B) A schematic of the portions of visible and near-infrared light that each camera's red, green, and blue channels are sensitive to. Below, black bars indicate the wavelengths of light that the full spectrum and 730nm LED strips emit; Chl FLO and Chl ABS are also included to indicate the fluorescence and absorption spectra of chlorophyll A and B. (C) Regressions of red, green, and blue channel values for images taken with the standard and modified cameras. As indicated in B, the green and blue channels of both cameras are highly correlated, whereas the red channel is not.</sub></sup>
-
+<br/><br/>
 The inclusion of IR values allowed us to derive the Normalized Difference Vegetation Index (NDVI), which is a useful measure of overall plant health and stress status. Simply put, NDVI is a measure of the difference of visible light vs infrared light reflected off a plant's surface. While healthy plants strongly absorb (red and blue) visible light via chlorophyll, more of this light will be reflected as plants become stressed and chlorophyll is lost. IR, on the other hand, tends to be strongly reflected regardless of plant stress status. As such, we quantified NDVI as the sum of the median red values from the standard (STD) and modified (MOD) cameras, i.e. visible red and IR, divided by their difference:
 ```math
 NDVI = {MOD_{red} + STD_{red} \over MOD_{red} - STD_{red}} 
@@ -29,6 +29,12 @@ A simple lightbox, a 2'x2'x2' cube constructed from MDF, served to control light
   <img src="https://github.com/km4htc/diy-htp-drought-phenotyping/assets/27516057/e4319410-659c-4fb2-a682-41ce47b36e68" width="49%" />
 </p>
 <sup><sub>Interior and exterior views of the lightbox. The interior (left) demonstrates how full spectrum and 730nm LED strips were positioned around the cameras while the exterior (right) shows how cameras were attached to the outside of the box.</sub></sup>
+<br/><br/>
+
+<p align="middle">
+  <img src="https://github.com/km4htc/diy-htp-drought-phenotyping/assets/27516057/03f5a249-2abf-46c2-9c0d-1cd96df7ed1e" width=75% >
+</p>
+<sup><sub>Images taken with both standard (left column) and modified (right column) cameras. When red 730nm LEDs are off (top row) images from both cameras are similar; when red 730nm LEDs are on (bottom row) only the modified camera detects the additional light. Like data shown above, this demonstrates that only the red channel is significantly different between the two cameras.</sub></sup>
 
 ### The scripts
 Lastly, we wrote a series of custom scripts to combine image data for individual plants across standard and modified camera images. These scripts—-which relied heavily on many tools from PlantCV--can be found elsewhere in the repository, so here I'll just provide a descriptive overview. First, each image was given a unique name that included multiple fields of sample metadata; paired images from the two cameras shared the same name with the exception of a final field noting the camera origin. Within each image, plants were individually segmented from the backround via object detection, then cropped and saved as individual image files (carrying forward metadata from the original filename as well as a unique plant identifier based on its left-right position in the original image). Using masks made during object detection, median RGB values were then extracted from individual plants, and, by matching filenames, data extracted from standard and modified camera images were then paired and used to calculate NDVI using the equation given above.
