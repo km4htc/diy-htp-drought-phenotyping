@@ -1,0 +1,1 @@
+Included here are a set of drought time series images for a set of five plants. The filenames indicate whether the image is from the standard (std) or modified (mod) camera and which drought day (1-7) the image was taken. For example, img1-std.png and img1-mod.png were taken simultaneously with both cameras on drought day 1.
