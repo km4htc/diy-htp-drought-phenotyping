@@ -46,15 +46,15 @@ def main():
 	cnts, hier = cv2.findContours(new_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)[-2:]
 	n = len(cnts)				
 	clusters_i, contours, hierarchies = pcv.cluster_contours(img=img,
-															 roi_objects=obj_contour,
-															 roi_obj_hierarchy=obj_hierarchy,
-															 nrow=1,
-															 ncol=n)
+								 roi_objects=obj_contour,
+								 roi_obj_hierarchy=obj_hierarchy,
+								 nrow=1,
+								 ncol=n)
 	clustered_img = pcv.visualize.clustered_contours(cropped_img, clusters_i, contours, hierarchies, nrow=1, ncol=n)
 	audit_name = 'audit-cluster/' + str.replace(filename, '.png', '_clustered.png')
 	pcv.print_image(clustered_img, audit-name)
 
-	# Iterate over kept contours, crop to plant, store to dict
+	# Iterate over kept contours (i.e. individual plants), crop to contour, store in dict
 	# Identifies the rectangular boundary of each plant
 	cropped_images = {}
 	cropped_masks = {}
