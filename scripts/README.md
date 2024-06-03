@@ -5,3 +5,5 @@ The order with which the scripts should be used goes:
 classify-and-split.py -> analyze-color.py -> format-color.R
 
 The pre-trained classifiers (to discern plant from background pixels) are also included here and are required inputs for classify-and-split.py.
+
+In particular, I relied on functions and examples from [PlantCV](https://plantcv.readthedocs.io/en/stable/).
