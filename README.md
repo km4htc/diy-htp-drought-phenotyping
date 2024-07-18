@@ -2,7 +2,7 @@
 
 This repository includes information to recreate both the hardware and software used to perform high-throughput drought phenotyping in *Improving rice drought tolerance through host-mediated microbiome selection* (https://doi.org/10.7554/eLife.97015.1).
 
-The README covers a lot of the background and motivation for this project, but if you're more interested in the mechanics of the image segmentation and data extraction check out the tutorial.ipynb and use the binder link to follow along.
+The README covers a lot of the background and motivation for this project, but if you're more interested in the mechanics of the image segmentation and data extraction check out the [tutorial.ipynb](tutorial.ipynb) and use the binder link to follow along.
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/km4htc/diy-htp-drought-phenotyping/main?labpath=https%3A%2F%2Fgithub.com%2Fkm4htc%2Fdiy-htp-drought-phenotyping%2Fblob%2Fmain%2Ftutorial.ipynb)
 
 
